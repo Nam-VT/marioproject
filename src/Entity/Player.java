@@ -127,6 +127,9 @@ public class Player extends entity {
 //
 //		g2.fillRect(x, y, gp.titleSize, gp.titleSize);
 		BufferedImage image = null;
+		
+		
+		
 
 		if (direction == "up" && spriteNum1 == 1) {
 			image = up1;
