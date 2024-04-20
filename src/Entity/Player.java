@@ -23,11 +23,11 @@ public class Player extends entity {
 		screenX = gp.screenWidth / 2 - gp.titleSize / 2;
 		screenY = gp.screenHeight / 2 - gp.titleSize / 2;
 		
-		/*solidArea = new Rectangle();
+		solidArea = new Rectangle();
 		solidArea.x = 8;
 		solidArea.y = 16;
 		solidArea.width=32;
-		solidArea.height=32; */
+		solidArea.height=32; 
 
 		setDefaultValues();
 		getPlayerImage();
@@ -83,19 +83,31 @@ public class Player extends entity {
 		}
 		if (keyH.leftPressed) {
 			direction = "left";
-			worldX -= speed;
+			
 		}
 
 		if (keyH.rightPressed) {
 			direction = "right";
-			worldX += speed;
+			
 		}
 		
 		//Check tile collision
 		collisionOn = false;
-	//	gp.cChecker.checkTile(this);
+		gp.cChecker.checkTile(this);
 		
 		//If collision is false, player can move
+		if(collisionOn == false ) {
+			if(direction == "up") {
+				
+			}
+			if(direction == "left") {
+				worldX -= speed;
+			}
+			if(direction == "right") {
+				worldX += speed;
+			}
+			
+		}
 		
 		if (isJumping) {
 			worldY -= jumpSpeed;
